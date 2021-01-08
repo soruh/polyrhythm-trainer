@@ -228,7 +228,7 @@ window.addEventListener("load", function () {
         document.body.removeChild(start);
         anim();
 
-        setInterval(do_tick, 10);
+        setInterval(do_tick, 1);
     };
 });
 

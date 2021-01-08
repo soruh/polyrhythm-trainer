@@ -166,7 +166,7 @@ window.addEventListener("load", function () {
     start.onclick = function () {
         document.body.removeChild(start);
         anim();
-        setInterval(do_tick, 10);
+        setInterval(do_tick, 1);
     };
 });
 function set_canvas_size(canvas) {
