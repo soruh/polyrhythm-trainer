@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Polyrhythm Trainer</title>
+    <script src="./main.js"></script>
+    <style>
+        body {
+            background-color: #111;
+            padding: 0;
+            margin: 0;
+        }
+
+        #canvas {
+            display: inline-block;
+        }
+
+        #input-container {
+            display: inline-block;
+            color: #DDD;
+            font-family: sans-serif;
+
+            vertical-align: top;
+            font-size: 24px;
+
+            max-height: 100vh;
+            overflow: auto;
+
+            margin: 3em 0 0 3em;
+        }
+
+        input[type=checkbox] {
+            line-height: 1;
+            height: 1em;
+            width: 1em;
+            margin-right: 0.5em;
+        }
+
+
+        input,
+        button {
+            margin: 10px;
+            padding: 0.125em 0.25em;
+            font-size: inherit;
+            border: none;
+        }
+
+        button {
+            padding: 0 0.5em;
+
+        }
+
+        button:hover {
+            background-color: #BBB;
+        }
+
+        #start {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        #start-text {
+            position: fixed;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            font-size: 40pt;
+            text-align: center;
+            font-family: sans-serif;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="start">
+        <div id="start-text">Start</div>
+    </div>
+
+    <div id="audios"></div>
+
+    <canvas width="1000" height="1000" id="canvas"></canvas>
+    <div id="input-container">
+        <input size="3" id="mute-all" type="checkbox" autocomplete="off"
+            onclick="toggle_mute.call(this, 'all')">Mute</input>
+        <br />
+        <input id="mute-ticks" type="checkbox" autocomplete="off" onclick="toggle_mute.call(this, 'tick')">Mute
+        Tick</input>
+        <br />
+        <input size="3" id="period" autocomplete="off" onchange="update_period(this)" value="5">Period</input>
+        <input size="3" id="bpm" autocomplete="off" onchange="update_period(this)" value="">bpm</input>
+        <br />
+        Times:
+        <div id="time-container">
+
+        </div>
+        <br />
+        <button onclick="sub_time()">&ndash;</button> <button onclick="add_time()">+</button>
+    </div>
+</body>
+
+</html>
